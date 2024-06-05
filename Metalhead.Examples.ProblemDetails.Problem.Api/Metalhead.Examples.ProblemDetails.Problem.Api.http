@@ -1,0 +1,125 @@
+@HostAddress = http://localhost:5159/api/v1
+
+// MINIMAL API ENDPOINTS
+
+// Development:     400 Bad Request response with Math Feature as problem details.
+// Non-Development: 400 Bad Request response with Math Feature as problem details.
+GET {{HostAddress}}/divide?numerator=1&denominator=0
+Accept: application/json
+###
+
+// Development:     400 Bad Request response as problem details.
+// Non-Development: 400 Bad Request response as problem details.
+GET {{HostAddress}}/squareroot?radicand=-1
+Accept: application/json
+###
+
+// Development:     500 Internal Server Error response as plain text (missing trace ID).
+// Non-Development: 500 Internal Server Error response as problem details.
+GET {{HostAddress}}/throwdivide
+Accept: application/json
+###
+
+// Development:     500 Internal Server Error response as plain text (missing trace ID).
+// Non-Development: 500 Internal Server Error response as problem details.
+GET {{HostAddress}}/throwex
+Accept: application/json
+###
+
+
+// Development:     400 Bad Request response with Math Feature as PROBLEM DETAILS (image/jpeg header).
+// Non-Development: 400 Bad Request response with Math Feature as PROBLEM DETAILS (image/jpeg header).
+GET {{HostAddress}}/divide?numerator=1&denominator=0
+Accept: image/jpeg
+###
+
+// Development:     400 Bad Request response as PROBLEM DETAILS (image/jpeg header).
+// Non-Development: 400 Bad Request response as PROBLEM DETAILS (image/jpeg header).
+GET {{HostAddress}}/squareroot?radicand=-1
+Accept: image/jpeg
+###
+
+// Development:     500 Internal Server Error response as plain text (missing trace ID) (image/jpeg header).
+// Non-Development: 500 Internal Server Error response as PROBLEM DETAILS (image/jpeg header).
+GET {{HostAddress}}/throwdivide
+Accept: image/jpeg
+###
+
+// Development:     500 Internal Server Error response as plain text (missing trace ID) (image/jpeg header).
+// Non-Development: 500 Internal Server Error response as PROBLEM DETAILS (image/jpeg header).
+GET {{HostAddress}}/throwex
+Accept: image/jpeg
+###
+
+// CONTROLLER API ENDPOINTS
+
+// Development:     400 Bad Request response with Math Feature as problem details.
+// Non-Development: 400 Bad Request response with Math Feature as problem details.
+GET {{HostAddress}}/math/divide/1/0
+Accept: application/json
+###
+
+// Development:     400 Bad Request response as problem details.
+// Non-Development: 400 Bad Request response as problem details.
+GET {{HostAddress}}/math/squareroot/-1
+Accept: application/json
+###
+
+// Development:     500 Internal Server Error response as plain text (missing trace ID).
+// Non-Development: 500 Internal Server Error response as problem details.
+GET {{HostAddress}}/math/throwdivide
+Accept: application/json
+###
+
+// Development:     500 Internal Server Error response as plain text (missing trace ID).
+// Non-Development: 500 Internal Server Error response as problem details).
+GET {{HostAddress}}/math/throwex
+Accept: application/json
+###
+
+
+// Development:     400 Bad Request response with Math Feature as PROBLEM DETAILS (image/jpeg header).
+// Non-Development: 400 Bad Request response with Math Feature as PROBLEM DETAILS (image/jpeg header).
+GET {{HostAddress}}/math/divide/1/0
+Accept: image/jpeg
+###
+
+// Development:     400 Bad Request response as PROBLEM DETAILS (image/jpeg header).
+// Non-Development: 400 Bad Request response as PROBLEM DETAILS (image/jpeg header).
+GET {{HostAddress}}/math/squareroot/-1
+Accept: image/jpeg
+###
+
+// Development:     500 Internal Server Error response as plain text (missing trace ID) (image/jpeg header).
+// Non-Development: 500 Internal Server Error response as PROBLEM DETAILS (image/jpeg header).
+GET {{HostAddress}}/math/throwdivide
+Accept: image/jpeg
+###
+
+// Development:     500 Internal Server Error response as plain text (missing trace ID) (image/jpeg header).
+// Non-Development: 500 Internal Server Error response as PROBLEM DETAILS (image/jpeg header).
+GET {{HostAddress}}/math/throwex
+Accept: image/jpeg
+###
+
+
+
+// Development:     400 Bad Request response MISSING Math Feature as problem details.
+// Non-Development: 400 Bad Request response MISSING Math Feature as problem details.
+// This endpoint returns a BadRequestResult when the denominator is 0.  BadRequestResult writes
+// to the response stream which prevents a customised problem details response, i.e. the math
+// feature will not be included in the response.  As a workaround, returning ControllerBase.Problem
+// can be used (see the 'workaroundresponse' endpoint), or using TypedResults.BadRequest.
+GET {{HostAddress}}/math/defectiveresponse/1/0
+Accept: application/json
+###
+
+// Development:     400 Bad Request response with Math Feature as problem details.
+// Non-Development: 400 Bad Request response with Math Feature as problem details.
+// This endpoint returns a ControllerBase.Problem when the denominator is 0.  This is a
+// workaround for the issue where returning a BadRequestResult prevents a custom problem
+// details being written to the response, due to BadRequestResult writing to the response.
+// An alternative workaround is to return TypedResults.BadRequest.
+GET {{HostAddress}}/math/workaroundresponse/1/0
+Accept: application/json
+###
