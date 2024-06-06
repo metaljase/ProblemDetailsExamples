@@ -43,7 +43,6 @@ try
                 }
             }
         });
-
     
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
@@ -86,7 +85,7 @@ try
                 }
             }));
     }
-
+    
     app.UseHttpsRedirection();
     app.UseAuthorization();
 
