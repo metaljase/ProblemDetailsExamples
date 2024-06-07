@@ -1,6 +1,6 @@
 # What is ProblemDetailsExamples?
 
-ProblemDetailsExamples contains three ASP.NET Core 8 projects, each demonstrating a different technique how HTTP APIs can generate HTTP error responses using the [Problem Details RFC 7807 specification](https://tools.ietf.org/html/rfc7807).
+ProblemDetailsExamples contains three ASP.NET Core 8 projects, each demonstrating a different technique how HTTP APIs can generate HTTP error responses using the [Problem Details RFC 9457 specification](https://datatracker.ietf.org/doc/html/rfc9457).
 
 Projects in the solution:
 - `Metalhead.Examples.ProblemDetails.Problem.Api` Writes problem details using [`Microsoft.AspNetCore.Http.Results.Problem`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.results.problem?view=aspnetcore-8.0).
