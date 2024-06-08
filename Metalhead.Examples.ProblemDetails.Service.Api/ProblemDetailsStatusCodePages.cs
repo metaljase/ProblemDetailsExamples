@@ -26,10 +26,12 @@ public class ProblemDetailsStatusCodePages
 
         if (problemDetailsService is null || !await problemDetailsService.TryWriteAsync(problemDetailsContext))
         {
-            // Cannot write problem details to the response. This can happen if the media types in
-            // the Accept header do not include a supported media type for this problem details writer,
-            // e.g. a subset of 'application/problem+json' or 'application/json'.
-            // Write a fallback message without the problem details writer.
+            // Cannot write problem details to the response.  This can happen if the media types in the Accept header do not
+            // include a supported media type for this problem details writer, e.g. a subset of 'application/problem+json'
+            // or 'application/json'.  Therefore, write a fallback message in plain text instead.
+            // NOTE: HTTP does allow the response to be written using a media type not specified in the request Accept header.
+            // This can be achieved using the 'Microsoft.AspNetCore.Http.Results.Problem' method, which is demonstrated in the
+            // 'Metalhead.Examples.ProblemDetails.Problem.Api.ProblemDetailsStatusCodePages' class.
             httpContext.Response.ContentType = System.Net.Mime.MediaTypeNames.Text.Plain;
 
             await httpContext.Response.WriteAsync(
