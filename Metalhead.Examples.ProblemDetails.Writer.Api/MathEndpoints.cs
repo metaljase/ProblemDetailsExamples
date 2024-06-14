@@ -66,8 +66,7 @@ public static class MathEndpoints
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.DivisionByZeroError,
-                Instance = $"{httpContext.Request.Method} {httpContext.Request.Path}{httpContext.Request.QueryString}"
+                MathError = MathErrorType.DivisionByZeroError
             };
             httpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -83,8 +82,7 @@ public static class MathEndpoints
         {
             //var errorFeature = new MathErrorFeature
             //{
-            //    MathError = MathErrorType.NegativeRadicandError,
-            //    Instance = $"{httpContext.Request.Method} {httpContext.Request.Path}{httpContext.Request.QueryString}"
+            //    MathError = MathErrorType.NegativeRadicandError
             //};
             //httpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -99,8 +97,7 @@ public static class MathEndpoints
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.ComplexNumberOperationError,
-                Instance = $"{httpContext.Request.Method} {httpContext.Request.Path}{httpContext.Request.QueryString}"
+                MathError = MathErrorType.ComplexNumberOperationError
             };
             httpContext.Features.Set(errorFeature);
 
@@ -117,8 +114,7 @@ public static class MathEndpoints
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.InvalidLogarithmError,
-                Instance = $"{httpContext.Request.Method} {httpContext.Request.Path}{httpContext.Request.QueryString}"
+                MathError = MathErrorType.InvalidLogarithmError
             };
             httpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -138,8 +134,7 @@ public static class MathEndpoints
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.OverflowError,
-                Instance = $"{httpContext.Request.Method} {httpContext.Request.Path}{httpContext.Request.QueryString}"
+                MathError = MathErrorType.OverflowError
             };
             httpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -161,8 +156,7 @@ public static class MathEndpoints
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.OutOfRangeFactorialError,
-                Instance = $"{httpContext.Request.Method} {httpContext.Request.Path}{httpContext.Request.QueryString}"
+                MathError = MathErrorType.OutOfRangeFactorialError
             };
             httpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -188,8 +182,7 @@ public static class MathEndpoints
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.InvalidTrigonometricArgumentError,
-                Instance = $"{httpContext.Request.Method} {httpContext.Request.Path}{httpContext.Request.QueryString}"
+                MathError = MathErrorType.InvalidTrigonometricArgumentError
             };
             httpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();

@@ -19,8 +19,7 @@ public class MathController : ControllerBase
         {            
             var errorType = new MathErrorFeature
             {
-                MathError = MathErrorType.DivisionByZeroError,
-                Instance = $"{HttpContext.Request.Method} {HttpContext.Request.Path}"
+                MathError = MathErrorType.DivisionByZeroError
             };
             HttpContext.Features.Set(errorType);
             return TypedResults.BadRequest();
@@ -40,8 +39,7 @@ public class MathController : ControllerBase
         {
             //var errorFeature = new MathErrorFeature
             //{
-            //    MathError = MathErrorType.NegativeRadicandError,
-            //    Instance = $"{HttpContext.Request.Method} {HttpContext.Request.Path}"
+            //    MathError = MathErrorType.NegativeRadicandError
             //};
             //HttpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -60,8 +58,7 @@ public class MathController : ControllerBase
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.ComplexNumberOperationError,
-                Instance = $"{HttpContext.Request.Method} {HttpContext.Request.Path}"
+                MathError = MathErrorType.ComplexNumberOperationError
             };
             HttpContext.Features.Set(errorFeature);
 
@@ -82,8 +79,7 @@ public class MathController : ControllerBase
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.InvalidLogarithmError,
-                Instance = $"{HttpContext.Request.Method} {HttpContext.Request.Path}"
+                MathError = MathErrorType.InvalidLogarithmError
             };
             HttpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -107,8 +103,7 @@ public class MathController : ControllerBase
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.OverflowError,
-                Instance = $"{HttpContext.Request.Method} {HttpContext.Request.Path}"
+                MathError = MathErrorType.OverflowError
             };
             HttpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -134,8 +129,7 @@ public class MathController : ControllerBase
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.OutOfRangeFactorialError,
-                Instance = $"{HttpContext.Request.Method} {HttpContext.Request.Path}"
+                MathError = MathErrorType.OutOfRangeFactorialError
             };
             HttpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -165,8 +159,7 @@ public class MathController : ControllerBase
         {
             var errorFeature = new MathErrorFeature
             {
-                MathError = MathErrorType.InvalidTrigonometricArgumentError,
-                Instance = $"{HttpContext.Request.Method} {HttpContext.Request.Path}"
+                MathError = MathErrorType.InvalidTrigonometricArgumentError
             };
             HttpContext.Features.Set(errorFeature);
             return TypedResults.BadRequest();
@@ -202,8 +195,7 @@ public class MathController : ControllerBase
         {
             var errorType = new MathErrorFeature
             {
-                MathError = MathErrorType.DivisionByZeroError,
-                Instance = $"{HttpContext.Request.Method} {HttpContext.Request.Path}"
+                MathError = MathErrorType.DivisionByZeroError
             };
             HttpContext.Features.Set(errorType);
             return BadRequest();
@@ -228,7 +220,7 @@ public class MathController : ControllerBase
                 title: "Bad Request",
                 statusCode: StatusCodes.Status400BadRequest,
                 detail: "Division by zero is not allowed.",
-                instance: $"{HttpContext.Request.Method} {HttpContext.Request.Path}");
+                instance: $"{HttpContext.Request.Path}");
         }
         return Ok(numerator / denominator);
     }

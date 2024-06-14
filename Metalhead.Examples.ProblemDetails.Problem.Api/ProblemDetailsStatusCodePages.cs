@@ -13,6 +13,7 @@ public class ProblemDetailsStatusCodePages
 
         var problemDetailsContext = new ProblemDetailsContext { HttpContext = httpContext };
         problemDetailsContext.ProblemDetails.Status = httpContext.Response.StatusCode;
+        problemDetailsContext.ProblemDetails.Instance = $"{httpContext.Request.Path}{httpContext.Request.QueryString}";
         problemDetailsContext.ProblemDetails.Extensions = new Dictionary<string, object?>
         {
             { "traceId", Activity.Current?.Id ?? httpContext.TraceIdentifier }

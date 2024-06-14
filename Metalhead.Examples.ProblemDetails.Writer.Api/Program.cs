@@ -74,13 +74,13 @@ try
     app.UseAuthorization();
 
     // Middleware for writing problem details.
-    //app.UseMiddleware<ProblemDetailsMiddleware>();
+    app.UseMiddleware<ProblemDetailsMiddleware>();
 
     // NOTE: Either UseMiddleware (above) or UseStatusCodePages (below) can be used...
     // The same functionality is provided by both, but UseMiddleware is more flexible.
 
     // Middleware for writing problem details for status codes between 400-599 (not unhandled exceptions).
-    app.UseStatusCodePages(ProblemDetailsStatusCodePages.HandleStatusCodeAsync);
+    //app.UseStatusCodePages(ProblemDetailsStatusCodePages.HandleStatusCodeAsync);
 
     // Add Maths endpoints.
     MathEndpoints.Register(app);

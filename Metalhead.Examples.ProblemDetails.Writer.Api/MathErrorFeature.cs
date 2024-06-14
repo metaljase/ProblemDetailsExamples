@@ -3,7 +3,6 @@
 public class MathErrorFeature
 {
     public MathErrorType MathError { get; set; }
-    public string? Instance { get; set; }
 
     public void SetProblemDetails(ProblemDetailsContext problemDetailsContext)
     {
@@ -29,10 +28,6 @@ public class MathErrorFeature
         problemDetailsContext.ProblemDetails.Type = details.Type;
         problemDetailsContext.ProblemDetails.Title = "Bad Request";
         problemDetailsContext.ProblemDetails.Detail = details.Detail;
-        if (Instance is not null)
-        {
-            problemDetailsContext.ProblemDetails.Instance = Instance;
-        }
     }
 }
 
