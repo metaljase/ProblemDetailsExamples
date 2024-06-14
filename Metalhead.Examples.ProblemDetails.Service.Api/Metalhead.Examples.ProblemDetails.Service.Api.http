@@ -16,12 +16,6 @@ Accept: application/json
 
 // Development:     500 Internal Server Error response as problem details.
 // Non-Development: 500 Internal Server Error response as problem details.
-GET {{HostAddress}}/throwdivide
-Accept: application/json
-###
-
-// Development:     500 Internal Server Error response as problem details.
-// Non-Development: 500 Internal Server Error response as problem details.
 GET {{HostAddress}}/throwex
 Accept: application/json
 ###
@@ -36,12 +30,6 @@ Accept: image/jpeg
 // Development:     400 Bad Request response as plain text (image/jpeg header).
 // Non-Development: 400 Bad Request response as plain text (image/jpeg header).
 GET {{HostAddress}}/squareroot?radicand=-1
-Accept: image/jpeg
-###
-
-// Development:     500 Internal Server Error response as plain text (missing trace ID) (image/jpeg header).
-// Non-Development: 500 Internal Server Error response as plain text (image/jpeg header).
-GET {{HostAddress}}/throwdivide
 Accept: image/jpeg
 ###
 
@@ -67,12 +55,6 @@ Accept: application/json
 
 // Development:     500 Internal Server Error response as problem details.
 // Non-Development: 500 Internal Server Error response as problem details.
-GET {{HostAddress}}/math/throwdivide
-Accept: application/json
-###
-
-// Development:     500 Internal Server Error response as problem details.
-// Non-Development: 500 Internal Server Error response as problem details.
 GET {{HostAddress}}/math/throwex
 Accept: application/json
 ###
@@ -87,12 +69,6 @@ Accept: image/jpeg
 // Development:     400 Bad Request response as PROBLEM DETAILS (image/jpeg header).
 // Non-Development: 400 Bad Request response as PROBLEM DETAILS (image/jpeg header).
 GET {{HostAddress}}/math/squareroot/-1
-Accept: image/jpeg
-###
-
-// Development:     500 Internal Server Error response as PROBLEM DETAILS (image/jpeg header).
-// Non-Development: 500 Internal Server Error response as plain text (image/jpeg header).
-GET {{HostAddress}}/math/throwdivide
 Accept: image/jpeg
 ###
 

@@ -175,17 +175,6 @@ public class MathController : ControllerBase
         return TypedResults.Ok(result);
     }
 
-    // /api/v1/math/throwdivide
-    [HttpGet(Name = nameof(ThrowDivide))]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(double))]
-    public Results<Ok<double>, BadRequest> ThrowDivide()
-    {
-        // An example of an endpoint that throws an DivideByZeroException.
-        double numerator = 1;
-        double denominator = 0;
-        return TypedResults.Ok(numerator / denominator);
-    }
-
     // /api/v1/math/thowex
     [HttpGet(Name = nameof(ThrowEx))]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]

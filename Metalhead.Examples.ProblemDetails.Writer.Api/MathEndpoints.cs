@@ -48,11 +48,6 @@ public static class MathEndpoints
             .WithName(nameof(GetInverseCosine))
             .WithOpenApi();
 
-        // /api/v1/throwdivide
-        mathGroup.MapGet("/throwdivide", ThrowDivideByZeroException)
-            .WithName(nameof(ThrowDivideByZeroException))
-            .WithOpenApi();
-
         // /api/v1/throwex
         mathGroup.MapGet("/throwex", ThrowException)
             .WithName(nameof(ThrowException))
@@ -201,14 +196,6 @@ public static class MathEndpoints
         }
         double result = Math.Acos(value);
         return TypedResults.Ok(result);
-    }
-
-    // An example of an endpoint that throws an DivideByZeroException.
-    public static Results<Ok<double>, BadRequest> ThrowDivideByZeroException()
-    {        
-        double numerator = 1;
-        double denominator = 0;
-        return TypedResults.Ok(numerator / denominator);
     }
 
     // An example of an endpoint that throws an InvalidOperationException.
