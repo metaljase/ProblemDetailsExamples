@@ -35,15 +35,14 @@ When an exception is thrown, it's bad practice to make the stack trace publicly 
 
 The response output varies depending on the technique used in each project, which may help you decide which technique is best suited for your project.
 
-Some techniques require the request Accept header to contain a media type that is a subset of `application/problem+json` or `application/json` to write a problem details object to the response, as shown in the following table:
+Some techniques require the request Accept header to contain a media type that is a subset of `application/problem+json` or `application/json` to write a problem details object to the response, as shown below:
 
 | Problem details writer | Subset of application/json or application/problem+json required in request Accept header to generate problem details object |
 |-|-|
 | [`Microsoft.AspNetCore.Http.Results.Problem`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.results.problem?view=aspnetcore-8.0) | No |
 | [`Microsoft.AspNetCore.Mvc.ControllerBase.Problem`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.problem?view=aspnetcore-8.0) | No |
-| [`Microsoft.AspNetCore.Http.IProblemDetailsService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iproblemdetailsservice?view=aspnetcore-8.0)<br>For responses via controller endpoints with status codes 400-599.<br>Uses&nbsp;`Microsoft.AspNetCore.Mvc.Infrastructure.DefaultApiProblemDetailsWriter` | No |
-| [`Microsoft.AspNetCore.Http.IProblemDetailsService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iproblemdetailsservice?view=aspnetcore-8.0)<br>For responses via minimal API endpoints with status codes 400-599.<br>Uses&nbsp;`Microsoft.AspNetCore.Http.DefaultProblemDetailsWriter` | Yes |
-| [`Microsoft.AspNetCore.Http.IProblemDetailsService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iproblemdetailsservice?view=aspnetcore-8.0)<br>For responses via exception handlers (due to null endpoint metadata).<br>Uses&nbsp;`Microsoft.AspNetCore.Http.DefaultProblemDetailsWriter` | Yes |
+| [`Microsoft.AspNetCore.Http.IProblemDetailsService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iproblemdetailsservice?view=aspnetcore-8.0) via controller endpoints<br>Uses&nbsp;`Microsoft.AspNetCore.Mvc.Infrastructure.DefaultApiProblemDetailsWriter` | No |
+| [`Microsoft.AspNetCore.Http.IProblemDetailsService`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iproblemdetailsservice?view=aspnetcore-8.0) via minimal API endpoints<br> Uses&nbsp;`Microsoft.AspNetCore.Http.DefaultProblemDetailsWriter` | Yes |
 
 NOTE: [`Microsoft.AspNetCore.Http.IProblemDetailsWriter`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iproblemdetailswriter?view=aspnetcore-8.0) is not included in the table above because it's used to write a custom implementation that can be written to generate problem details objects using your own requirements.
 
@@ -97,7 +96,7 @@ Considering the table above, the following table shows whether the response is w
     <td>ProblemDetails.Problem</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td>
   </tr>
   <tr>
-    <td>ProblemDetails.Service</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>PD<br></td><td>PD</td><td>PD<br></td><td>Text</td>
+    <td>ProblemDetails.Service</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>PD<br></td><td>PD</td><td>PD<br></td><td>PD</td>
   </tr>
   <tr>
     <td>ProblemDetails.Writer</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td><td>Text</td><td>Text</td><td>Text</td><td>Text</td>

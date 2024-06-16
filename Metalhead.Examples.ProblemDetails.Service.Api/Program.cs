@@ -64,7 +64,12 @@ try
                     return;
 
                 var problemDetailsService = httpContext.RequestServices.GetService<IProblemDetailsService>();
-                var problemDetailsContext = new ProblemDetailsContext { HttpContext = httpContext };
+                var exceptionHandlerFeature = httpContext.Features.Get<IExceptionHandlerFeature>();
+                var problemDetailsContext = new ProblemDetailsContext
+                {
+                    AdditionalMetadata = exceptionHandlerFeature?.Endpoint?.Metadata,
+                    HttpContext = httpContext
+                };
                 if (problemDetailsService is null || !await problemDetailsService.TryWriteAsync(problemDetailsContext))
                 {
                     // Failed to write problem details to the response.  This can happen if the media types in
@@ -72,7 +77,7 @@ try
                     // e.g. a subset of 'application/problem+json' or 'application/json'.
                     // Write a fallback message without the problem details writer.
                     httpContext.Response.ContentType = System.Net.Mime.MediaTypeNames.Text.Plain;
-                    var exception = httpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
+                    var exception = exceptionHandlerFeature?.Error;
                     ProblemDetailsDefaults.Apply(problemDetailsContext.ProblemDetails, httpContext.Response.StatusCode);
                     var message = $"""
                         type: {problemDetailsContext.ProblemDetails.Type}
