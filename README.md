@@ -67,10 +67,10 @@ Considering the table above, the following table shows whether the response is w
     <td>ProblemDetails.Problem</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td>
   </tr>
   <tr>
-    <td>ProblemDetails.Service via minimal API endpoints</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>Text</td><td>Text</td><td>Text</td><td>Text</td>
+    <td>ProblemDetails.Service<br>via minimal API endpoints</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>Text</td><td>Text</td><td>Text</td><td>Text</td>
   </tr>
   <tr>
-    <td>ProblemDetails.Service via controller endpoints</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>PD<br></td><td>PD</td><td>PD<br></td><td>PD</td>
+    <td>ProblemDetails.Service<br>via controller endpoints</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>PD<br></td><td>PD</td><td>PD<br></td><td>PD</td>
   </tr>
   <tr>
     <td>ProblemDetails.Writer</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td><td>Text</td><td>Text</td><td>Text</td><td>Text</td>
