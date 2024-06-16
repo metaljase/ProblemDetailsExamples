@@ -47,7 +47,6 @@ Some techniques require the request Accept header to contain a media type that i
 NOTE: [`Microsoft.AspNetCore.Http.IProblemDetailsWriter`](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.http.iproblemdetailswriter?view=aspnetcore-8.0) is not included in the table above because it's used to write a custom implementation that can be written to generate problem details objects using your own requirements.
 
 Considering the table above, the following table shows whether the response is written as a problem details object or a fallback in plain text:
-### Output using minimal API endpoints
 <table><thead>
   <tr>
     <th rowspan="3">Project</th>
@@ -68,35 +67,10 @@ Considering the table above, the following table shows whether the response is w
     <td>ProblemDetails.Problem</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td>
   </tr>
   <tr>
-    <td>ProblemDetails.Service</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>Text</td><td>Text</td><td>Text</td><td>Text</td>
+    <td>ProblemDetails.Service via minimal API endpoints</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>Text</td><td>Text</td><td>Text</td><td>Text</td>
   </tr>
   <tr>
-    <td>ProblemDetails.Writer</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td><td>Text</td><td>Text</td><td>Text</td><td>Text</td>
-  </tr>
-</tbody></table>
-
-### Output using controller endpoints
-<table><thead>
-  <tr>
-    <th rowspan="3">Project</th>
-    <th colspan="4">Accept Header: application/json</th>
-    <th colspan="4">Accept Header: image/jpeg</th>
-  </tr>
-  <tr>
-    <th colspan="2">Status Codes<br>400-599</th>
-    <th colspan="2">Unhandled<br>Exception</th>
-    <th colspan="2">Status Codes<br>400-599<br></th>
-    <th colspan="2">Unhandled<br>Exception<br></th>
-  </tr>
-  <tr>
-    <th>Dev</th><th>Non-Dev<br></th><th>Dev</th><th>Non-Dev</th><th>Dev</th><th>Non-Dev</th><th>Dev</th><th>Non-Dev</th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td>ProblemDetails.Problem</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td>
-  </tr>
-  <tr>
-    <td>ProblemDetails.Service</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>PD<br></td><td>PD</td><td>PD<br></td><td>PD</td>
+    <td>ProblemDetails.Service via controller endpoints</td><td>PD</td><td>PD</td><td>PD</td><td>PD</td><td>PD<br></td><td>PD</td><td>PD<br></td><td>PD</td>
   </tr>
   <tr>
     <td>ProblemDetails.Writer</td><td>PD</td><td>PD</td><td>Text</td><td>PD</td><td>Text</td><td>Text</td><td>Text</td><td>Text</td>
